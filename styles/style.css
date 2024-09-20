@@ -13,16 +13,6 @@ html {
 	block-size: 100%;
 }
 
-.page {
-	inline-size: 1200px;
-	block-size: 100%;
-	margin: auto;
-	color: #fff;
-	font-family: var(--font-family);
-	font-size: 18px;
-	background-color: #1b1919;
-}
-
 h1,
 h2,
 h3,
@@ -41,22 +31,27 @@ ul,
 ol {
 	list-style: none;
 }
+
 .visually-hidden {
 	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	border: 0;
-	padding: 0;
-	white-space: nowrap;
-	clip-path: inset(100%);
-	clip: rect(0 0 0 0);
+	inline-size: 1px;
+	block-size: 1px;
 	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 .page {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	inline-size: 1200px;
+	block-size: 100%;
+	margin: auto;
+	background-color: #1b1919;
+	color: #fff;
+	font-family: var(--font-family);
+	font-size: 18px;
 }
 .content {
 	display: flex;
@@ -66,11 +61,6 @@ ol {
 	block-size: 534px;
 	overflow: hidden;
 }
-.search-form {
-	display: flex;
-	justify-content: space-between;
-	inline-size: 100%;
-}
 .result {
 	display: flex;
 	justify-content: space-between;
@@ -78,25 +68,31 @@ ol {
 	block-size: 456px;
 	flex-wrap: wrap;
 }
-.content__details {
-	inline-size: 399px;
-	block-size: 534px;
-	overflow-y: scroll;
-	overflow-x: hidden;
-}
-.content__details::-webkit-scrollbar {
-	display: none;
-}
 .result__video-container {
 	inline-size: 100%;
 	block-size: 386px;
-	margin-bottom: 16px;
+	margin-bottom: 18px;
 }
 .result__video {
-	width: 100%;
+	inline-size: 100%;
 	height: 100%;
 	object-fit: fill;
 }
+.search-form {
+	display: flex;
+	justify-content: space-between;
+	inline-size: 100%;
+}
+
+.content__details {
+	inline-size: 399px;
+	block-size: 534px;
+}
+
+.content__list::-webkit-scrollbar {
+	display: none;
+}
+
 .title {
 	margin-bottom: 26px;
 	font-family: var(--second-family);
@@ -108,13 +104,13 @@ ol {
 	color: #545050;
 }
 .search-form {
-	width: 711px;
-	height: 54px;
+	inline-size: 711px;
+	block-size: 54px;
 }
 
 .search-form__fieldset {
-	width: 225px;
-	height: 54px;
+	inline-size: 225px;
+	block-size: 54px;
 	border: 0;
 }
 .search-form__fieldset-title {
@@ -125,16 +121,39 @@ ol {
 	margin-bottom: 5px;
 }
 input[type='text'] {
+	appearance: none;
 	border: 0;
 	border-bottom: 1px solid #fff;
 	border-top: 1px solid #fff;
-	width: 225px;
-	height: 27px;
+	inline-size: 225px;
+	block-size: 27px;
 	background-color: transparent;
 	font-family: var(--font-family);
 	font-weight: 400;
 	font-size: 18px;
 	color: #fff;
+	position: relative;
+}
+
+input:focus {
+	outline: none;
+}
+button:focus {
+	outline: none;
+}
+
+.search-form__label {
+	position: relative;
+	bottom: 2px;
+}
+.search-form__label:has(:focus-visible) {
+	border: 1px solid #fff;
+}
+/* .search-form__label:hover {
+	text-decoration: underline;
+} */
+.search-form__label-text:hover {
+	text-decoration: underline;
 }
 input::placeholder {
 	font-family: var(--font-family);
@@ -142,26 +161,30 @@ input::placeholder {
 	font-size: 18px;
 	color: rgba(255, 255, 255, 0.7);
 }
+
 .search-form__submit-button {
+	margin-block: 2px;
 	align-self: end;
 	border: 1px solid #fff;
-	width: 194px;
-	height: 34px;
+	inline-size: 194px;
+	block-size: 34px;
 	background-color: transparent;
 	font-family: var(--font-family);
 	font-size: 18px;
 	font-weight: 700;
 	color: inherit;
+	position: relative;
+	bottom: 1px;
 }
 .search-form__fieldset:nth-child(2) {
-	width: 212px;
-	height: 49px;
+	inline-size: 212px;
+	block-size: 49px;
 }
 .search-form__pseudo-checkbox {
 	display: inline-block;
 	border: 1px solid #fff;
-	width: 19px;
-	height: 19px;
+	inline-size: 19px;
+	block-size: 19px;
 }
 .search-form__checkbox-list {
 	display: flex;
@@ -170,8 +193,8 @@ input::placeholder {
 .content__list-item {
 	display: flex;
 	padding: 2px;
-	width: 394px;
-	height: 107px;
+	inline-size: 394px;
+	block-size: 107px;
 }
 .content__list {
 	display: flex;
@@ -180,14 +203,17 @@ input::placeholder {
 }
 
 .content__video-card-thumbnail {
-	width: 194px;
-	height: 103px;
+	inline-size: 194px;
+	block-size: 100%;
 }
 .content__card-link {
-	width: 100%;
+	block-size: 100%;
+	inline-size: 100%;
+	padding: 2px;
 }
 .content__video-card {
-	width: 100%;
+	inline-size: 100%;
+	block-size: 100%;
 	display: flex;
 	justify-content: space-between;
 }
@@ -199,4 +225,102 @@ input::placeholder {
 }
 .content__list {
 	position: relative;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	block-size: 298px;
+}
+.content__list-item a {
+	font-family: var(--second-family);
+	color: white;
+	text-decoration: none;
+}
+.content__video-card-title {
+	font-family: var(--second-family);
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: 30px;
+}
+.more-button {
+	position: relative;
+	bottom: 2px;
+	inline-size: 100%;
+	block-size: 34px;
+	background-color: transparent;
+	border: 1px solid #fff;
+	font-size: 18px;
+	font-weight: 700;
+	color: inherit;
+}
+.search-form__label {
+	display: flex;
+	align-items: center;
+	padding-inline: 1px;
+	cursor: pointer;
+}
+
+button {
+	cursor: pointer;
+}
+
+.search-form__label-text {
+	margin-inline-start: 5px;
+}
+
+input:checked + span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input:checked + span::after {
+	display: block;
+	content: '';
+	inline-size: 15px;
+	block-size: 15px;
+	background-color: #fff;
+}
+input[type='text']:active {
+	border: 0;
+}
+.search-form__fieldset__button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: end;
+	border: 0;
+}
+.search-form__label__button {
+	display: flex;
+	align-items: center;
+}
+
+.search-form__submit-button:active {
+	background-color: #545050;
+}
+.search-form__submit-button:hover {
+	text-decoration: underline;
+}
+.search-form__label__button:has(:focus-visible) {
+	border: 1px solid #fff;
+}
+.content__card-link:active {
+	background-color: #545050;
+}
+
+.content__card-link {
+	outline: none;
+}
+.content__list-item:hover {
+	text-decoration: underline;
+}
+.content__list-item:has(:focus-visible) {
+	border: 1px solid #fff;
+}
+.content__video-card-description {
+	font-weight: 400;
+	line-height: 90%;
+}
+.search-form__fieldset {
+	position: relative;
+	bottom: 2px;
 }
