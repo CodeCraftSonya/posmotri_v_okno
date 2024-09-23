@@ -68,7 +68,6 @@ button {
 	align-items: end;
 	justify-content: space-between;
 	inline-size: 1140px;
-	block-size: 534px;
 }
 .result {
 	display: flex;
@@ -134,10 +133,12 @@ button {
 	justify-content: space-between;
 }
 .search-form__pseudo-checkbox {
-	display: inline-block;
 	border: 1px solid #fff;
 	inline-size: 19px;
 	block-size: 19px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 .search-form__fieldset__button {
 	display: flex;
@@ -188,11 +189,6 @@ input::placeholder {
 input:focus {
 	outline: none;
 }
-input:checked + span {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 input:checked + span::after {
 	display: block;
 	content: '';
@@ -224,7 +220,6 @@ button:focus {
 	flex-direction: column;
 	gap: 30px;
 }
-
 .content__list-item {
 	display: flex;
 	inline-size: 398px;
@@ -244,9 +239,7 @@ button:focus {
 	color: white;
 	text-decoration: none;
 }
-.content__card-link:active {
-	background-color: #545050;
-}
+.content__card-link:active,
 .content__card-link_current {
 	background-color: #545050;
 }
