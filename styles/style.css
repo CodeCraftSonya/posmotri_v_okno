@@ -218,11 +218,11 @@ button:focus {
 	block-size: 298px;
 	display: flex;
 	flex-direction: column;
-	gap: 30px;
 }
 .content__list-item {
 	display: flex;
 	inline-size: 398px;
+	padding-block-end: 30px;
 }
 .content__list-item:hover {
 	text-decoration: underline;
